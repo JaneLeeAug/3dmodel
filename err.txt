@@ -1,9 +1,2 @@
-root@7f7912dd1ee1:/proj/gpu_mtk53732/3D-Speaker# python speakerlab/bin/infer_sv.py   --model_id /proj/MR_dataset/mtk53732/3dmodel/models/speech_campplus_sv_zh-cn_16k-common --wavs /proj/MR_dataset/mtk53732/SDSD0003640036.wav /proj/MR_dataset/mtk53732/SD/SD0002567077.wav
-Traceback (most recent call last):
-  File "/proj/gpu_mtk53732/3D-Speaker/speakerlab/bin/infer_sv.py", line 380, in <module>
-    main()
-  File "/proj/gpu_mtk53732/3D-Speaker/speakerlab/bin/infer_sv.py", line 271, in main
-    official_model_id, conf, cache_dir, save_dir = resolve_model(args)
-  File "/proj/gpu_mtk53732/3D-Speaker/speakerlab/bin/infer_sv.py", line 248, in resolve_model
-    assert official_model_id in supports, "Model id not currently supported."
-AssertionError: Model id not currently supported.
+apt-get update
+apt-get install -y sox libsox-dev libsox-fmt-all
