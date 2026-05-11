@@ -1,2 +1,16 @@
-apt-get update
-apt-get install -y sox libsox-dev libsox-fmt-all
+def load_wav(wav_file, obj_fs=16000):
+    wav, fs = torchaudio.load(wav_file)
+
+    if fs != obj_fs:
+        print(f'[WARNING]: The sample rate of {wav_file} is not {obj_fs}, resample it.')
+        resampler = torchaudio.transforms.Resample(
+            orig_freq=fs,
+            new_freq=obj_fs
+        )
+        wav = resampler(wav)
+        fs = obj_fs
+
+    if wav.shape[0] > 1:
+        wav = wav[0, :].unsqueeze(0)
+
+    return wav
